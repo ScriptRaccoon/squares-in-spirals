@@ -1,3 +1,5 @@
+import "./style.css";
+
 // TYPES
 type point = [number, number];
 type square = [point, point, point, point];
@@ -47,7 +49,7 @@ function draw_squares(
 	t: number
 ): Promise<void> {
 	return new Promise((resolve) => {
-		const ctx = canvas.getContext("2d");
+		const ctx = canvas.getContext("2d")!;
 		const offset = ctx.lineWidth / 2;
 
 		const initial_square: square = [
@@ -103,7 +105,7 @@ function setup_canvases(canvases: HTMLCanvasElement[]) {
 		const vmin = Math.min(window.innerWidth, window.innerHeight);
 		const canvas_size = vmin / 2.2;
 		canvas.width = canvas.height = canvas_size;
-		const ctx = canvas.getContext("2d");
+		const ctx = canvas.getContext("2d")!;
 		ctx.lineWidth = Math.round(window.innerWidth / 500);
 		ctx.strokeStyle = "#f2c";
 	});
@@ -111,7 +113,7 @@ function setup_canvases(canvases: HTMLCanvasElement[]) {
 
 // GET LIST OF ALL CANVASES IN THE HTML
 function get_canvases(): HTMLCanvasElement[] {
-	return [...document.querySelectorAll("canvas")];
+	return Array.from(document.querySelectorAll("canvas"));
 }
 
 // REMOVE THE HINT ELEMENT
