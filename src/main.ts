@@ -101,10 +101,12 @@ async function draw_all_canvases() {
 
 // SETUP OF CANVASES: SIZE AND COLOR
 function setup_canvases(canvases: HTMLCanvasElement[]) {
+	const window_size = Math.min(
+		window.innerWidth,
+		window.innerHeight
+	);
 	canvases.forEach((canvas) => {
-		const vmin = Math.min(window.innerWidth, window.innerHeight);
-		const canvas_size = vmin / 2.2;
-		canvas.width = canvas.height = canvas_size;
+		canvas.width = canvas.height = window_size / 2.2;
 		const ctx = canvas.getContext("2d")!;
 		ctx.lineWidth = Math.round(window.innerWidth / 500);
 		ctx.strokeStyle = "#f2c";
