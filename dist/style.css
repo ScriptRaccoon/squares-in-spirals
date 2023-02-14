@@ -1,0 +1,23 @@
+body {
+	margin: 0;
+	min-height: 100vh;
+	display: grid;
+	place-items: center;
+	background-color: #113;
+	color: white;
+}
+
+p {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 2rem;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+main {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+}
